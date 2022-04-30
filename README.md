@@ -26,7 +26,7 @@ npm run lint
 
 ### start API server
 
-node index.js
+npm run start
 
 ### Customize configuration
 

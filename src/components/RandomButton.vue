@@ -8,11 +8,15 @@
 export default {
   methods: {
     getRecipe() {
+      this.$emit("resetRecipe");
       let num = Math.floor(Math.random() * this.menu.length);
-      this.$router.push({
-        path: "/",
-        query: { menu: this.menu[num] },
-      });
+      this.$router.push(
+        {
+          path: "/",
+          query: { menu: this.menu[num] },
+        },
+        () => {}
+      );
       this.$emit("getRecipe");
     },
   },

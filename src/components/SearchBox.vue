@@ -30,10 +30,14 @@ export default {
   }),
   methods: {
     getRecipe() {
-      this.$router.push({
-        path: "/",
-        query: { menu: this.menu },
-      });
+      this.$emit("resetRecipe");
+      this.$router.push(
+        {
+          path: "/",
+          query: { menu: this.menu },
+        },
+        () => {}
+      );
       this.$emit("getRecipe");
     },
   },

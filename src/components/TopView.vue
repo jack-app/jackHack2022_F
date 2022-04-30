@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SearchBox @getRecipe="getRecipe" />
+    <SearchBox @getRecipe="getRecipe" @resetRecipe="resetRecipe" />
     <RecipeTemplate v-if="recipe" :recipe="recipe" />
   </div>
 </template>
@@ -25,12 +25,18 @@ export default {
     if (query.menu && query.volume && query.process) {
       this.getRecipe();
     } else {
-      this.$router.push({
-        path: "/",
-      });
+      this.$router.push(
+        {
+          path: "/",
+        },
+        () => {}
+      );
     }
   },
   methods: {
+    resetRecipe() {
+      this.recipe = "";
+    },
     getRecipe() {
       let query = Object.assign({}, this.$route.query);
       let menu = query.menu;
@@ -55,10 +61,13 @@ export default {
             { menu: menu, volume: volumeperm, process: processperm },
             this.$route.query
           );
-          this.$router.push({
-            path: "/",
-            query: query,
-          });
+          this.$router.push(
+            {
+              path: "/",
+              query: query,
+            },
+            () => {}
+          );
         });
     },
   },
