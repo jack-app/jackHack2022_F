@@ -19,15 +19,15 @@ export default {
   props: ["recipe"],
   computed: {
     mixIngredients() {
+      let query = Object.assign({}, this.$route.query);
+      let volumeperm = Array.from(String(query.volume)).map((i) =>
+        parseInt(i, 16)
+      );
       let array = this.recipe.ingredients.slice();
       let volume = array.map((item) => item.volume);
-      for (let i = volume.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [volume[i], volume[j]] = [volume[j], volume[i]];
-      }
       return array.map((item, i) => ({
         ...item,
-        volume: volume[i],
+        volume: volume[volumeperm[i]],
       }));
     },
   },

@@ -23,12 +23,12 @@ export default {
   props: ["recipe"],
   computed: {
     mixProcesses() {
+      let query = Object.assign({}, this.$route.query);
+      let processperm = Array.from(String(query.process)).map((i) =>
+        parseInt(i, 16)
+      );
       let array = this.recipe.slice();
-      for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
+      return array.map((_, i) => this.recipe[processperm[i]]);
     },
   },
 };

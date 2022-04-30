@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form action="/">
     <ul>
       <li><p id="foodSearch">食べ物を検索</p></li>
       <li>
@@ -9,6 +9,7 @@
           type="text"
           placeholder="料理名を入力"
         />
+        <input type="text" style="display: none" />
       </li>
       <li><input id="sbtn1" type="button" @click="getRecipe" value="GO!" /></li>
     </ul>
@@ -22,7 +23,11 @@ export default {
   }),
   methods: {
     getRecipe() {
-      this.$emit("getRecipe", this.menu);
+      this.$router.push({
+        path: "/",
+        query: { menu: this.menu },
+      });
+      this.$emit("getRecipe");
     },
   },
 };
