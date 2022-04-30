@@ -1,5 +1,12 @@
 <template>
-  <form action="/">
+  <div class="form">
+    <h3><span>食べ物を検索</span></h3>
+    <input id="sbox1" v-model="menu" type="text" placeholder="料理名を入力" />
+    <br />
+    <input id="sbtn1" type="button" @click="getRecipe" value="GO！" />
+  </div>
+
+  <!-- <form>
     <ul>
       <li><p id="foodSearch">食べ物を検索</p></li>
       <li>
@@ -13,7 +20,7 @@
       </li>
       <li><input id="sbtn1" type="button" @click="getRecipe" value="GO!" /></li>
     </ul>
-  </form>
+  </form> -->
 </template>
 
 <script>
@@ -36,43 +43,50 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style scoped>
+.form {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
 form #form1 {
   max-width: 270px;
   margin-bottom: 15px;
   padding-top: 15%;
   padding-bottom: 4%;
 }
-
-form ul {
+h3 span {
+  background: linear-gradient(transparent 70%, rgba(0, 139, 139, 0.6) 70%);
+}
+/* form ul {
   list-style: none;
-}
+} */
 
-form ul li p#foodSearch {
+/* h3#foodSearch {
   font-weight: bold;
-}
+} */
 
-form ul li input#sbox1 {
+input#sbox1 {
   outline: 0;
   height: 50px;
   padding: 0 10px;
+  margin-top: 2rem;
   border: none;
   border-radius: 4px;
   background: #eee;
 }
 
-form ul li input#sbtn1 {
+input#sbtn1 {
   width: 70px;
   height: 40px;
   border-radius: 4px;
-  background: #3c0;
+  background-color: rgb(212, 42, 42);
   border: none;
   color: #fff;
   font-weight: bold;
   font-size: 16px;
-  margin-top: 20px;
+  margin: 20px;
 }
 
-form ul li input#sbtn1:hover {
+input#sbtn1:hover {
   color: #000;
 }
 </style>
