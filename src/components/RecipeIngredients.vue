@@ -2,16 +2,14 @@
   <div class="container">
     <div class="row p-2" v-for="(ingredient, key) in ingredients" :key="key">
       <p class="col-9 m-0">{{ ingredient.item }}</p>
-      <p class="col-3 m-0">
-        {{ ingredient.servingVolume }}{{ ingredient.servingUnit }}
-      </p>
+      <p class="col-3 m-0">{{ ingredient.volume }}g</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["ingredients"],
+  props: ['ingredients'],
   mounted() {
     console.log(this.ingredients);
   },
@@ -23,9 +21,11 @@ export default {
 .container {
   width: 50%;
   text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 .row {
   text-align: left;
-  border-bottom: 1px solid #ff8a00;
+  border-bottom: 2px solid darkcyan;
 }
 </style>
