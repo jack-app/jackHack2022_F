@@ -1,5 +1,4 @@
 const app = require("express")();
-const request = require("request");
 const axios = require("axios");
 
 var server = app.listen(3000, function () {
