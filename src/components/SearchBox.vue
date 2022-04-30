@@ -47,7 +47,6 @@ form ul li p#foodSearch {
 }
 
 form ul li input#sbox1 {
-  left: 39%;
   outline: 0;
   height: 50px;
   padding: 0 10px;
@@ -57,7 +56,6 @@ form ul li input#sbox1 {
 }
 
 form ul li input#sbtn1 {
-  left: 53%;
   width: 70px;
   height: 40px;
   border-radius: 4px;
