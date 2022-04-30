@@ -2,18 +2,21 @@
   <div id="app">
     <SearchBox />
     <RecipeTemplate />
+    <TwitterButton />
   </div>
 </template>
 
 <script>
-import SearchBox from "@/components/SearchBox.vue";
-import RecipeTemplate from "@/components/RecipeTemplate.vue";
+import SearchBox from '@/components/SearchBox.vue';
+import RecipeTemplate from '@/components/RecipeTemplate.vue';
+import TwitterButton from '@/components/TwitterButton.vue';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     RecipeTemplate,
     SearchBox,
+    TwitterButton,
   },
 };
 </script>
