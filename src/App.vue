@@ -4,40 +4,11 @@
       <h1 class="title">レシピクラッシャー</h1>
     </header>
     <div id="app">
-      <SearchBox @getRecipe="getRecipe" />
-      <RecipeTemplate v-if="recipe" :recipe="recipe" />
+      <router-view />
     </div>
     <footer>@jack</footer>
   </html>
 </template>
-
-<script>
-import SearchBox from "@/components/SearchBox.vue";
-import RecipeTemplate from "@/components/RecipeTemplate.vue";
-
-import axios from "axios";
-
-export default {
-  name: "App",
-  components: {
-    RecipeTemplate,
-    SearchBox,
-  },
-  data: () => ({
-    recipe: "",
-  }),
-  methods: {
-    getRecipe(menu) {
-      axios
-        .get(`${process.env.VUE_APP_URL}/api?menu=${menu}`)
-        .then((response) => {
-          this.recipe = response.data;
-        })
-        .catch(() => alert("そんな食べ物はない！！！"));
-    },
-  },
-};
-</script>
 
 <style>
 html {

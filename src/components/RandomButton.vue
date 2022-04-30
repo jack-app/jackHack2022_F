@@ -9,7 +9,11 @@ export default {
   methods: {
     getRecipe() {
       let num = Math.floor(Math.random() * this.menu.length);
-      this.$emit("getRecipe", this.menu[num]);
+      this.$router.push({
+        path: "/",
+        query: { menu: this.menu[num] },
+      });
+      this.$emit("getRecipe");
     },
   },
   data: () => ({

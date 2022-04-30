@@ -2,14 +2,12 @@
   <div>
     <SearchBox @getRecipe="getRecipe" />
     <RecipeTemplate v-if="recipe" :recipe="recipe" />
-    <TwitterButton />
   </div>
 </template>
 
 <script>
 import SearchBox from "@/components/SearchBox.vue";
 import RecipeTemplate from "@/components/RecipeTemplate.vue";
-import TwitterButton from "@/components/TwitterButton.vue";
 
 import axios from "axios";
 
@@ -18,7 +16,6 @@ export default {
   components: {
     RecipeTemplate,
     SearchBox,
-    TwitterButton,
   },
   data: () => ({
     recipe: "",
