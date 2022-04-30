@@ -1,0 +1,35 @@
+<template>
+  <div>
+    <p v-for="ingredient in ingredients" :key="ingredient.key">
+      {{ ingredient.item }}
+      {{ ingredient.volume }}g
+    </p>
+  </div>
+</template>
+
+<script>
+export default {
+  data: () => ({
+    ingredients: [
+      {
+        item: "\u9d8f\u5375\u3000\u5168\u5375\u3000\u751f\u3000",
+        volume: 120.0,
+        key: 0,
+      },
+      {
+        item: "\u3053\u3081\u3000\uff3b\u6c34\u7a32\u3081\u3057\uff3d\u3000\u7cbe\u767d\u7c73\u3000\u3046\u308b\u3061\u7c73\u3000",
+        volume: 50.0,
+        key: 1,
+      },
+      {
+        item: "\uff1c\u8abf\u5473\u6599\u985e\uff1e\uff08\u3057\u3087\u3046\u3086\u985e\uff09\u3060\u3057\u3057\u3087\u3046\u3086\u3000",
+        volume: 0.2,
+        key: 2,
+      },
+    ],
+  }),
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped></style>

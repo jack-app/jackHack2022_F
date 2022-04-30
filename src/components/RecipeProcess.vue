@@ -1,0 +1,26 @@
+<template>
+  <div>
+    {{ process.volume }}グラムの{{ process.item }}を{{ process.time }}分{{
+      process.cook
+    }}。
+  </div>
+</template>
+
+<script>
+export default {
+  data: () => ({
+    process: {
+      FoodGroup: "1",
+      FoodNumber: "1088",
+      RefNum: "93",
+      item: "\u3053\u3081\u3000\uff3b\u6c34\u7a32\u3081\u3057\uff3d\u3000\u7cbe\u767d\u7c73\u3000\u3046\u308b\u3061\u7c73\u3000",
+      volume: "120.0",
+      cook: "\u306a\u3057",
+      time: "0.0",
+    },
+  }),
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped></style>
