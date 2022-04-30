@@ -3,13 +3,11 @@
     <header>
       <h1 class="title">レシピクラッシャー</h1>
     </header>
-    <body>
-      <div id="app">
-        <SearchBox @getRecipe="getRecipe" />
-        <RecipeTemplate v-if="recipe" :recipe="recipe" />
-      </div>
-      <footer>@jack</footer>
-    </body>
+    <div id="app">
+      <SearchBox @getRecipe="getRecipe" />
+      <RecipeTemplate v-if="recipe" :recipe="recipe" />
+    </div>
+    <footer>@jack</footer>
   </html>
 </template>
 
@@ -76,6 +74,11 @@ header {
 .title::after {
   content: url('@/assets/exclamation-diamond-fill.svg');
   margin: 0.5rem;
+}
+
+.container {
+  margin: 0;
+  width: 100%;
 }
 
 footer {

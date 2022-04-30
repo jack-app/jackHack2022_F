@@ -1,6 +1,6 @@
 <template>
   <div class="form">
-    <h3>食べ物を検索</h3>
+    <h3><span>食べ物を検索</span></h3>
     <input id="sbox1" v-model="menu" type="text" placeholder="料理名を入力" />
     <input id="sbtn1" type="button" @click="getRecipe" value="GO！" />
   </div>
@@ -47,7 +47,9 @@ form #form1 {
   padding-top: 15%;
   padding-bottom: 4%;
 }
-
+h3 span {
+  background: linear-gradient(transparent 70%, rgba(0, 139, 139, 0.6) 70%);
+}
 /* form ul {
   list-style: none;
 } */

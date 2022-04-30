@@ -1,9 +1,13 @@
 <template>
   <div>
-    <h3>材料</h3>
+    <h3><span>材料</span></h3>
     <RecipeIngredients :ingredients="recipe.ingredients" />
-    <h3>手順</h3>
+    <h3><span>手順</span></h3>
     <RecipeProcesses :recipe="recipe.ingredients" />
+    <br />
+    <br />
+    <p>気に入ったレシピはtwitterで共有しよう！</p>
+    <p>↓↓↓</p>
     <TwitterButton />
   </div>
 </template>
@@ -24,4 +28,8 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+h3 span {
+  background: linear-gradient(transparent 70%, rgba(0, 139, 139, 0.6) 70%);
+}
+</style>
