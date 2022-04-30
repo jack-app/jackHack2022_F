@@ -2,6 +2,7 @@
   <div class="form">
     <h3><span>食べ物を検索</span></h3>
     <input id="sbox1" v-model="menu" type="text" placeholder="料理名を入力" />
+    <br />
     <input id="sbtn1" type="button" @click="getRecipe" value="GO！" />
   </div>
 
@@ -72,7 +73,7 @@ input#sbtn1 {
   width: 70px;
   height: 40px;
   border-radius: 4px;
-  background: darkorchid;
+  background-color: darkorange;
   border: none;
   color: #fff;
   font-weight: bold;
