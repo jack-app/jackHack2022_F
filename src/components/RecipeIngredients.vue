@@ -12,9 +12,6 @@
 <script>
 export default {
   props: ["ingredients"],
-  mounted() {
-    console.log(this.ingredients);
-  },
 };
 </script>
 
