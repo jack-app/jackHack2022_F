@@ -73,7 +73,7 @@ input#sbtn1 {
   width: 70px;
   height: 40px;
   border-radius: 4px;
-  background-color: darkorange;
+  background-color: rgb(212, 42, 42);
   border: none;
   color: #fff;
   font-weight: bold;
