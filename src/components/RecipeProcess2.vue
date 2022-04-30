@@ -1,14 +1,14 @@
 <template>
-  <li class="list-group-item">
-  <!--div class="card">
-    <div class="card-body"-->
-
-      {{ process.volume }}gの{{ process.item }}を
+  <!--li class="list-group-item"-->
+  <div class="card">
+    <div class="card-body">
+      <p class="card-text">
+      {{ process.item }}{{ process.volume }}gを
       {{ process.time }}分{{ process.cook }}。
-
-    <!--/div>
-  </div-->
-  </li>
+      </p>
+    </div>
+  </div>
+<!--/li-->
 </template>
 
 <script>
@@ -29,13 +29,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  ol > li::before {
-    font-weight: bold;
-    content: counter(list-count) ".";
-    counter-increment: list-count;
-    margin: 10px;
-  }
-  li {
-    margin: 10px;
+  .card {
+    width: 70%;
+    margin: 20px auto;
+    padding: 10px;
+    box-shadow: 1px 1px;
+    background-color: #b4f49c
+
   }
 </style>
