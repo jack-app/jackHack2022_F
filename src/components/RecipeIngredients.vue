@@ -16,6 +16,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .container {
+  display: -ms-inline-grid;
   width: 50%;
   text-align: center;
   margin-top: 2rem;
