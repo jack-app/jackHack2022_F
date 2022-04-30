@@ -10,7 +10,11 @@ app.get("/api", (req, res, next) => {
   axios
     .get(`https://katsuo.herokuapp.com/api?search=${menu}`)
     .then((response) => {
-      res.send(response.data[0]);
+      if (response.data.length) {
+        res.send(response.data[0]);
+      } else {
+        res.status(500);
+      }
     });
 });
 
