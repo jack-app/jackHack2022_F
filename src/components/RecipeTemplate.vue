@@ -1,9 +1,9 @@
 <template>
   <div>
     材料
-    <RecipeIngredients :ingredients="recipe.ingredients" />
+    <RecipeIngredients :ingredients="confusedingredients" />
     手順
-    <RecipeProcesses :recipe="recipe.ingredients" />
+    <RecipeProcesses v-if="confusedingredients" :recipe="confusedingredients" />
   </div>
 </template>
 
@@ -17,6 +17,21 @@ export default {
     RecipeIngredients,
   },
   props: ["recipe"],
+  data: () => ({
+    confusedingredients: null,
+  }),
+  mounted() {
+    let array = this.recipe.ingredients.slice();
+    let volume = array.map((item) => item.volume);
+    for (let i = volume.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [volume[i], volume[j]] = [volume[j], volume[i]];
+    }
+    this.confusedingredients = array.map((item, i) => ({
+      ...item,
+      volume: volume[i],
+    }));
+  },
 };
 </script>
 
