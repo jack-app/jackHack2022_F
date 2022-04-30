@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  props: ["process"],
+  props: ['process'],
 };
 </script>
 
@@ -20,12 +20,12 @@ export default {
 <style scoped>
 ol > li::before {
   font-weight: bold;
-  content: counter(list-count) ".";
+  content: counter(list-count) '.';
   counter-increment: list-count;
   margin: 3px;
 }
 li {
-  margin: 10px auto;
+  margin: 10px 15%;
   text-align: left;
   text-indent: -1.3em;
 }
