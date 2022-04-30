@@ -1,22 +1,25 @@
 <template>
   <div>
-    材料
+    <h3>材料</h3>
     <RecipeIngredients :ingredients="recipe.ingredients" />
-    手順
+    <h3>手順</h3>
     <RecipeProcesses :recipe="recipe.ingredients" />
+    <TwitterButton />
   </div>
 </template>
 
 <script>
-import RecipeProcesses from "@/components/RecipeProcesses.vue";
-import RecipeIngredients from "@/components/RecipeIngredients.vue";
+import RecipeProcesses from '@/components/RecipeProcesses.vue';
+import RecipeIngredients from '@/components/RecipeIngredients.vue';
+import TwitterButton from '@/components/TwitterButton.vue';
 
 export default {
   components: {
     RecipeProcesses,
     RecipeIngredients,
+    TwitterButton,
   },
-  props: ["recipe"],
+  props: ['recipe'],
 };
 </script>
 

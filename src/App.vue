@@ -7,17 +7,15 @@
       <div id="app">
         <SearchBox @getRecipe="getRecipe" />
         <RecipeTemplate v-if="recipe" :recipe="recipe" />
-        <TwitterButton />
       </div>
+      <footer>@jack</footer>
     </body>
-    <footer>@jack</footer>
   </html>
 </template>
 
 <script>
 import SearchBox from '@/components/SearchBox.vue';
 import RecipeTemplate from '@/components/RecipeTemplate.vue';
-import TwitterButton from '@/components/TwitterButton.vue';
 
 import axios from 'axios';
 
@@ -26,7 +24,6 @@ export default {
   components: {
     RecipeTemplate,
     SearchBox,
-    TwitterButton,
   },
   data: () => ({
     recipe: '',
@@ -53,7 +50,8 @@ html {
   color: #2c3e50;
 }
 #app {
-  height: 100vh;
+  min-height: 100vh;
+  max-height: 100%;
 }
 header {
   position: sticky;
@@ -61,10 +59,7 @@ header {
   text-align: center;
   padding: 0.5rem;
   background-color: darkcyan;
-}
-
-body {
-  overflow-y: scroll;
+  z-index: 100;
 }
 
 .title {

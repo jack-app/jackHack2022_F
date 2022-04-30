@@ -26,6 +26,6 @@ export default {
 }
 .row {
   text-align: left;
-  border-bottom: 2px solid darkcyan;
+  border-bottom: 1px solid darkcyan;
 }
 </style>
