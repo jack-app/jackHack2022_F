@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div
-      class="row p-3"
+      class="row p-2"
       v-for="ingredient in ingredients"
       :key="ingredient.key"
     >
