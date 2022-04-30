@@ -2,10 +2,8 @@
   <li class="list-group-item">
   <!--div class="card">
     <div class="card-body"-->
-
       {{ process.volume }}gの{{ process.item }}を
       {{ process.time }}分{{ process.cook }}。
-
     <!--/div>
   </div-->
   </li>
@@ -33,9 +31,11 @@ export default {
     font-weight: bold;
     content: counter(list-count) ".";
     counter-increment: list-count;
-    margin: 10px;
+    margin: 3px;
   }
   li {
-    margin: 10px;
+    margin: 10px auto;
+    text-align: left;
+    text-indent: -1.3em;
   }
 </style>
