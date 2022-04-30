@@ -1,5 +1,6 @@
 const app = require("express")();
 const request = require("request");
+const axios = require("axios");
 
 var server = app.listen(3000, function () {
   console.log("Node.js is listening to PORT:" + server.address().port);
@@ -7,16 +8,11 @@ var server = app.listen(3000, function () {
 
 app.get("/api", (req, res, next) => {
   const menu = encodeURI(req.query.menu);
-  request(
-    "https://katsuo.herokuapp.com/api?search=" + menu,
-    (error, response, body) => {
-      if (error !== null) {
-        console.error("error:", error);
-        res.status(500);
-      }
-      res.send(body);
-    }
-  );
+  axios
+    .get(`https://katsuo.herokuapp.com/api?search=${menu}`)
+    .then((response) => {
+      res.send(response.data[0]);
+    });
 });
 
 module.exports = app;
