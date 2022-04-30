@@ -1,9 +1,13 @@
 const app = require("express")();
 const axios = require("axios");
 
-var server = app.listen(3000, function () {
+var port = process.env.PORT || 3000;
+
+var server = app.listen(port, function () {
   console.log("Node.js is listening to PORT:" + server.address().port);
 });
+
+app.use(serveStatic(__dirname + "/dist"));
 
 app.get("/api", (req, res, next) => {
   const menu = encodeURI(req.query.menu);
