@@ -1,9 +1,9 @@
 <template>
   <div>
     材料
-    <RecipeIngredients />
+    <RecipeIngredients :ingredients="recipe.ingredients" />
     手順
-    <RecipeProcesses />
+    <RecipeProcesses :recipe="recipe.ingredients" />
   </div>
 </template>
 
@@ -16,6 +16,7 @@ export default {
     RecipeProcesses,
     RecipeIngredients,
   },
+  props: ["recipe"],
 };
 </script>
 

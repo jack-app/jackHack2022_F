@@ -1,22 +1,36 @@
 <template>
   <div id="app">
-    <SearchBox />
-    <RecipeTemplate />
+    <SearchBox @getRecipe="getRecipe" />
+    <RecipeTemplate v-if="recipe" :recipe="recipe" />
     <TwitterButton />
   </div>
 </template>
 
 <script>
-import SearchBox from '@/components/SearchBox.vue';
-import RecipeTemplate from '@/components/RecipeTemplate.vue';
-import TwitterButton from '@/components/TwitterButton.vue';
+import SearchBox from "@/components/SearchBox.vue";
+import RecipeTemplate from "@/components/RecipeTemplate.vue";
+import TwitterButton from "@/components/TwitterButton.vue";
+
+import axios from "axios";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     RecipeTemplate,
     SearchBox,
     TwitterButton,
+  },
+  data: () => ({
+    recipe: "",
+  }),
+  methods: {
+    getRecipe(menu) {
+      axios
+        .get(`${process.env.VUE_APP_URL}/api?menu=${menu}`)
+        .then((response) => {
+          this.recipe = response.data;
+        });
+    },
   },
 };
 </script>
