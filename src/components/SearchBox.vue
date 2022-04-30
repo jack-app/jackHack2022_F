@@ -16,6 +16,7 @@
           type="text"
           placeholder="料理名を入力"
         />
+        <input type="text" style="display: none" />
       </li>
       <li><input id="sbtn1" type="button" @click="getRecipe" value="GO!" /></li>
     </ul>
@@ -25,11 +26,15 @@
 <script>
 export default {
   data: () => ({
-    menu: '',
+    menu: "",
   }),
   methods: {
     getRecipe() {
-      this.$emit('getRecipe', this.menu);
+      this.$router.push({
+        path: "/",
+        query: { menu: this.menu },
+      });
+      this.$emit("getRecipe");
     },
   },
 };

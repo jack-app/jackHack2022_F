@@ -5,7 +5,7 @@
       style="width: 70%; margin: auto"
     >
       <RecipeProcess
-        v-for="(process, key) in recipe"
+        v-for="(process, key) in mixProcesses"
         :key="key"
         :process="process"
       />
@@ -21,6 +21,16 @@ export default {
     RecipeProcess,
   },
   props: ["recipe"],
+  computed: {
+    mixProcesses() {
+      let query = Object.assign({}, this.$route.query);
+      let processperm = Array.from(String(query.process)).map((i) =>
+        parseInt(i, 16)
+      );
+      let array = this.recipe.slice();
+      return array.map((_, i) => this.recipe[processperm[i]]);
+    },
+  },
 };
 </script>
 
