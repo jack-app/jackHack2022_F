@@ -4,6 +4,7 @@
     <input id="sbox1" v-model="menu" type="text" placeholder="料理名を入力" />
     <br />
     <input id="sbtn1" type="button" @click="getRecipe" value="GO！" />
+    <RandomButton />
   </div>
 
   <!-- <form>
@@ -24,21 +25,25 @@
 </template>
 
 <script>
+import RandomButton from '@/components/RandomButton.vue';
 export default {
+  components: {
+    RandomButton,
+  },
   data: () => ({
-    menu: "",
+    menu: '',
   }),
   methods: {
     getRecipe() {
-      this.$emit("resetRecipe");
+      this.$emit('resetRecipe');
       this.$router.push(
         {
-          path: "/",
+          path: '/',
           query: { menu: this.menu },
         },
         () => {}
       );
-      this.$emit("getRecipe");
+      this.$emit('getRecipe');
     },
   },
 };
