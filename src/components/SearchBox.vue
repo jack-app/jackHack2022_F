@@ -69,7 +69,7 @@ form #form1 {
   padding-bottom: 4%;
 }
 h3 span {
-  background: linear-gradient(transparent 70%, rgba(0, 139, 139, 0.6) 70%);
+  background: linear-gradient(transparent 70%, rgba(201, 67, 0, 0.6) 70%);
 }
 /* form ul {
   list-style: none;

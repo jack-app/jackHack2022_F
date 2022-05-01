@@ -8,7 +8,7 @@
     </div>
     <div
       class="d-flex justify-content-between position-sticky bottom-0 m-2"
-      style="z-index: 500"
+      style="z-index: 100"
     >
       <img
         class="left"
@@ -45,7 +45,7 @@ header {
   top: 0;
   text-align: center;
   padding: 0.5rem;
-  background-color: rgb(201, 67, 0);
+  background-color: darkcyan;
   z-index: 100;
 }
 
@@ -73,7 +73,7 @@ header {
 footer {
   position: sticky;
   bottom: 0;
-  background-color: rgb(201, 67, 0);
+  background-color: darkcyan;
   height: 30px;
   color: white;
 }

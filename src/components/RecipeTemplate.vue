@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="recipetitle">
-      <h3>{{ recipeTitle }}のレシピ</h3>
-    </div>
+    <h3>
+      <span class="contenttitle">{{ recipeTitle }}のレシピ</span>
+    </h3>
     <h3>
       <span class="contenttitle">材料</span>
       <span class="servingsize"
@@ -71,16 +71,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .contenttitle {
-  background: linear-gradient(transparent 70%, rgba(0, 139, 139, 0.6) 70%);
+  background: linear-gradient(transparent 70%, rgba(201, 67, 0, 0.6) 70%);
 }
 
 .servingsize {
   font-size: 0.5em;
-}
-
-.recipetitle {
-  display: inline-block;
-  border-bottom: 5px solid rgba(0, 139, 139, 0.6);
-  margin-bottom: 2rem;
 }
 </style>

@@ -1,7 +1,8 @@
 <template>
-  <div>
+  <div style="z-index: 9999">
     <a
       class="btn btn-primary m-3"
+      style="z-index: 9999"
       @click="twitterShare"
       target="_blank"
       rel="noopener"
