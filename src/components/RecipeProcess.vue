@@ -2,9 +2,12 @@
   <li class="list-group-item" style="{ 'transition-delay': `${index * 10}s` }">
     <!--div class="card">
     <div class="card-body"-->
-    {{ process.volume }}gの{{ process.item }}を {{ process.time }}分{{
-      process.cook
-    }}。
+    {{ process.volume }}gの{{ process.item }}を
+    <span v-if="process.time != '0.0' && process.time != '0'">
+      {{ process.time }}分
+    </span>
+    <span v-if="process.cook != 'なし'">{{ process.cook }}</span>
+    <span v-else>入れる</span>。
     <!--/div>
   </div-->
   </li>
@@ -12,17 +15,17 @@
 
 <script>
 export default {
-  props: ['process'],
+  props: ["process"],
   data() {
     return {
       selectedVoiceIndex: 0,
       voices: [],
-      errorMessage: '',
+      errorMessage: "",
     };
   },
   mounted: function () {
     if (
-      typeof speechSynthesis !== 'undefined' &&
+      typeof speechSynthesis !== "undefined" &&
       speechSynthesis.onvoiceschanged !== undefined
     ) {
       window.speechSynthesis.onvoiceschanged = () => this.onVoiceChanged();
@@ -41,8 +44,8 @@ export default {
   },
   methods: {
     onVoiceChanged() {
-      if (typeof speechSynthesis === 'undefined') {
-        this.$data.errorMessage = 'speechSynthesis is undefined';
+      if (typeof speechSynthesis === "undefined") {
+        this.$data.errorMessage = "speechSynthesis is undefined";
         return;
       }
 
@@ -51,8 +54,8 @@ export default {
       this.$data.selectedVoiceIndex = 0;
     },
     onImgClick() {
-      if (typeof speechSynthesis === 'undefined') {
-        this.$data.errorMessage = 'speechSynthesis is undefined';
+      if (typeof speechSynthesis === "undefined") {
+        this.$data.errorMessage = "speechSynthesis is undefined";
         return;
       }
       const utterance = new SpeechSynthesisUtterance(
@@ -69,7 +72,7 @@ export default {
 <style scoped>
 ol > li::before {
   font-weight: bold;
-  content: counter(list-count) '.';
+  content: counter(list-count) ".";
   counter-increment: list-count;
   margin: 3px;
 }

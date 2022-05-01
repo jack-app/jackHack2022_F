@@ -1,8 +1,16 @@
 <template>
   <div>
-    <h3><span>材料</span></h3>
+    <div class="recipetitle">
+      <h3>{{ recipeTitle }}のレシピ</h3>
+    </div>
+    <h3>
+      <span class="contenttitle">材料</span>
+      <span class="servingsize"
+        >（分量：{{ recipe.ServingSize }}{{ recipe.ServingUnit }}）</span
+      >
+    </h3>
     <RecipeIngredients :ingredients="mixIngredients" />
-    <h3><span>手順</span></h3>
+    <h3><span class="contenttitle">手順</span></h3>
     <RecipeProcesses :recipe="mixIngredients" />
     <br />
     <br />
@@ -31,11 +39,30 @@ export default {
         parseInt(i, 16)
       );
       let array = this.recipe.ingredients.slice();
-      let volume = array.map((item) => item.volume);
+      let volume = array.map((ingredient) => ingredient.volume);
+      let names = array.map((ingredient) => this.fixName(ingredient.item));
       return array.map((item, i) => ({
         ...item,
         volume: volume[volumeperm[i]],
+        item: names[i],
       }));
+    },
+    recipeTitle() {
+      return this.recipe.recipe.split("\u3000").join("");
+    },
+  },
+  methods: {
+    fixName(name) {
+      let fixedname = name
+        .split(/[\u3000＜＞（）]/)
+        .filter(
+          (item) =>
+            item != "" &&
+            item.slice(-1)[0] != "類" &&
+            item != "加工品" &&
+            item != "缶詰"
+        );
+      return fixedname[0];
     },
   },
 };
@@ -43,7 +70,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 span {
+.contenttitle {
   background: linear-gradient(transparent 70%, rgba(0, 139, 139, 0.6) 70%);
+}
+
+.servingsize {
+  font-size: 0.5em;
+}
+
+.recipetitle {
+  display: inline-block;
+  border-bottom: 5px solid rgba(0, 139, 139, 0.6);
+  margin-bottom: 2rem;
 }
 </style>
