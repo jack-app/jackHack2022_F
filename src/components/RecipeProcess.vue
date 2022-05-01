@@ -3,7 +3,9 @@
     <!--div class="card">
     <div class="card-body"-->
     {{ process.volume }}gの{{ process.item }}を
-    <span v-if="process.time != '0.0'">{{ process.time }}分</span>
+    <span v-if="process.time != '0.0' && process.time != '0'">
+      {{ process.time }}分
+    </span>
     <span v-if="process.cook != 'なし'">{{ process.cook }}</span>
     <span v-else>入れる</span>。
     <!--/div>
