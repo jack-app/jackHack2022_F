@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import RecipeProcesses from "@/components/RecipeProcesses.vue";
-import RecipeIngredients from "@/components/RecipeIngredients.vue";
-import TwitterButton from "@/components/TwitterButton.vue";
+import RecipeProcesses from '@/components/RecipeProcesses.vue';
+import RecipeIngredients from '@/components/RecipeIngredients.vue';
+import TwitterButton from '@/components/TwitterButton.vue';
 
 export default {
   components: {
@@ -31,7 +31,7 @@ export default {
     RecipeIngredients,
     TwitterButton,
   },
-  props: ["recipe"],
+  props: ['recipe'],
   computed: {
     mixIngredients() {
       let query = Object.assign({}, this.$route.query);
@@ -48,7 +48,7 @@ export default {
       }));
     },
     recipeTitle() {
-      return this.recipe.recipe.split("\u3000").join("");
+      return this.recipe.recipe.split('\u3000').join('');
     },
   },
   methods: {
@@ -57,10 +57,10 @@ export default {
         .split(/[\u3000＜＞（）]/)
         .filter(
           (item) =>
-            item != "" &&
-            item.slice(-1)[0] != "類" &&
-            item != "加工品" &&
-            item != "缶詰"
+            item != '' &&
+            item.slice(-1)[0] != '類' &&
+            item != '加工品' &&
+            item != '缶詰'
         );
       return fixedname[0];
     },

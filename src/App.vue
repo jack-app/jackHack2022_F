@@ -13,14 +13,14 @@
       <img
         class="left"
         src="@/assets/gorori.png"
-        width="270px"
-        height="360px"
+        width="240px"
+        height="320px"
       />
       <img
         class="right"
         src="@/assets/gorori.png"
-        width="270px"
-        height="360px"
+        width="240px"
+        height="320px"
       />
     </div>
     <footer>@jack</footer>
@@ -45,7 +45,7 @@ header {
   top: 0;
   text-align: center;
   padding: 0.5rem;
-  background-color: darkcyan;
+  background-color: rgb(201, 67, 0);
   z-index: 100;
 }
 
@@ -73,7 +73,7 @@ header {
 footer {
   position: sticky;
   bottom: 0;
-  background-color: darkcyan;
+  background-color: rgb(201, 67, 0);
   height: 30px;
   color: white;
 }
@@ -83,9 +83,10 @@ img .left {
   flex-direction: row;
   position: sticky;
   bottom: 0;
-  left: 0;
+  left: 2;
   z-index: 200;
   margin: 2rem;
+  margin-left: 4rem;
   text-align: left;
 }
 
@@ -97,6 +98,7 @@ img .right {
   right: 0;
   z-index: 200;
   margin: 2rem;
+  margin: 4rem;
   text-align: right;
 }
 </style>

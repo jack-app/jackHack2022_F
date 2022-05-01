@@ -99,6 +99,7 @@ input#sbtn1 {
   font-weight: bold;
   font-size: 16px;
   margin: 20px;
+  z-index: 1000;
 }
 
 input#sbtn1:hover {
