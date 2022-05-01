@@ -18,9 +18,9 @@ export default {
       //シェアする画面を設定
       const url =
         'https://twitter.com/intent/tweet?text=' +
-        '変なレシピを作りました' +
+        `${this.$route.query.menu}のレシピをぐちゃぐちゃにしました\n` +
         '&url=' +
-        'https://github.com/jack-app/jackHack2022_F'; //TODO: 変更する
+        `${process.env.VUE_APP_URL}${this.$route.fullPath}`; //TODO: 変更する
       window.open(url, '_blank');
     },
   },

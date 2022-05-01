@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  props: ['ingredients'],
+  props: ["ingredients"],
 };
 </script>
 
@@ -19,8 +19,7 @@ export default {
   display: -ms-inline-grid;
   width: 50%;
   text-align: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin: 2rem auto;
 }
 .row {
   text-align: left;
