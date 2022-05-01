@@ -2,9 +2,10 @@
   <li class="list-group-item">
     <!--div class="card">
     <div class="card-body"-->
-    {{ process.volume }}gの{{ process.item }}を {{ process.time }}分{{
-      process.cook
-    }}。
+    {{ process.volume }}gの{{ process.item }}を
+    <span v-if="process.time != '0.0'">{{ process.time }}分</span>
+    <span v-if="process.cook != 'なし'">{{ process.cook }}</span>
+    <span v-else>入れる</span>。
     <!--/div>
   </div-->
   </li>
@@ -12,7 +13,7 @@
 
 <script>
 export default {
-  props: ['process'],
+  props: ["process"],
 };
 </script>
 
@@ -20,7 +21,7 @@ export default {
 <style scoped>
 ol > li::before {
   font-weight: bold;
-  content: counter(list-count) '.';
+  content: counter(list-count) ".";
   counter-increment: list-count;
   margin: 3px;
 }
