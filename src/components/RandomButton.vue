@@ -1,5 +1,5 @@
 <template>
-  <button type="button" class="random-button" @click="getRecipe">
+  <button type="button" class="random-button" @click="setRecipe">
     ランダム
   </button>
 </template>
@@ -7,17 +7,9 @@
 <script>
 export default {
   methods: {
-    getRecipe() {
-      this.$emit("resetRecipe");
+    setRecipe() {
       let num = Math.floor(Math.random() * this.menu.length);
-      this.$router.push(
-        {
-          path: "/",
-          query: { menu: this.menu[num] },
-        },
-        () => {}
-      );
-      this.$emit("getRecipe");
+      this.$emit("setRecipe", this.menu[num]);
     },
   },
   data: () => ({
@@ -263,6 +255,6 @@ export default {
   color: #fff;
   font-weight: bold;
   font-size: 16px;
-  margin-top: 20px;
+  margin: 20px;
 }
 </style>
