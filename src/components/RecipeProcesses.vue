@@ -1,6 +1,9 @@
 <template>
   <div>
-    <ol
+    <transition-group
+      tag="ol"
+      appear
+      name="list"
       class="list-group list-group-numbered list-group-flush"
       style="width: 70%; margin: auto"
     >
@@ -9,18 +12,18 @@
         :key="key"
         :process="process"
       />
-    </ol>
+    </transition-group>
   </div>
 </template>
 
 <script>
-import RecipeProcess from "@/components/RecipeProcess.vue";
+import RecipeProcess from '@/components/RecipeProcess.vue';
 
 export default {
   components: {
     RecipeProcess,
   },
-  props: ["recipe"],
+  props: ['recipe'],
   computed: {
     mixProcesses() {
       let query = Object.assign({}, this.$route.query);
@@ -39,5 +42,14 @@ export default {
 ol {
   counter-reset: list-count;
   list-style: none;
+}
+
+.list-enter-active {
+  transition: all 0.3s ease;
+}
+/* アイテムが追加されアニメーションが始まる最初だけ付与される */
+.list-enter {
+  transform: translateX(10px);
+  opacity: 0;
 }
 </style>
