@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  props: ["ingredients"],
+  props: ['ingredients'],
 };
 </script>
 

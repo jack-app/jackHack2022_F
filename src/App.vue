@@ -6,6 +6,23 @@
     <div id="app">
       <router-view />
     </div>
+    <div
+      class="d-flex justify-content-between position-sticky bottom-0 m-2"
+      style="z-index: 500"
+    >
+      <img
+        class="left"
+        src="@/assets/gorori.png"
+        width="270px"
+        height="360px"
+      />
+      <img
+        class="right"
+        src="@/assets/gorori.png"
+        width="270px"
+        height="360px"
+      />
+    </div>
     <footer>@jack</footer>
   </html>
 </template>
@@ -17,6 +34,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  position: relative;
 }
 #app {
   min-height: 100vh;
@@ -38,12 +56,12 @@ header {
 }
 
 .title::before {
-  content: url("@/assets/exclamation-diamond-fill.svg");
+  content: url('@/assets/exclamation-diamond-fill.svg');
   margin: 0.5rem;
 }
 
 .title::after {
-  content: url("@/assets/exclamation-diamond-fill.svg");
+  content: url('@/assets/exclamation-diamond-fill.svg');
   margin: 0.5rem;
 }
 
@@ -58,5 +76,27 @@ footer {
   background-color: darkcyan;
   height: 30px;
   color: white;
+}
+
+img .left {
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  margin: 2rem;
+  text-align: left;
+}
+
+img .right {
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  bottom: 0;
+  right: 0;
+  z-index: 200;
+  margin: 2rem;
+  text-align: right;
 }
 </style>

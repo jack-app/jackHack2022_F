@@ -1,5 +1,5 @@
 <template>
-  <li class="list-group-item">
+  <li class="list-group-item" style="{ 'transition-delay': `${index * 10}s` }">
     <!--div class="card">
     <div class="card-body"-->
     {{ process.volume }}gの{{ process.item }}を {{ process.time }}分{{
@@ -13,6 +13,55 @@
 <script>
 export default {
   props: ['process'],
+  data() {
+    return {
+      selectedVoiceIndex: 0,
+      voices: [],
+      errorMessage: '',
+    };
+  },
+  mounted: function () {
+    if (
+      typeof speechSynthesis !== 'undefined' &&
+      speechSynthesis.onvoiceschanged !== undefined
+    ) {
+      window.speechSynthesis.onvoiceschanged = () => this.onVoiceChanged();
+    } else {
+      this.onVoiceChanged();
+    }
+    //   if (typeof speechSynthesis === 'undefined') {
+    //     this.$data.errorMessage = 'speechSynthesis is undefined';
+    //     return;
+    //   }
+    //   const utterance = new SpeechSynthesisUtterance(
+    //     `${this.$props.process.volume}gの${this.$props.process.item}を ${this.$props.process.time}分${this.$props.process.cook}。`
+    //   );
+    //   utterance.voice = this.$data.voices[this.$data.selectedVoiceIndex];
+    //   speechSynthesis.speak(utterance);
+  },
+  methods: {
+    onVoiceChanged() {
+      if (typeof speechSynthesis === 'undefined') {
+        this.$data.errorMessage = 'speechSynthesis is undefined';
+        return;
+      }
+
+      const voices = speechSynthesis.getVoices();
+      this.$data.voices = voices;
+      this.$data.selectedVoiceIndex = 0;
+    },
+    onImgClick() {
+      if (typeof speechSynthesis === 'undefined') {
+        this.$data.errorMessage = 'speechSynthesis is undefined';
+        return;
+      }
+      const utterance = new SpeechSynthesisUtterance(
+        `${this.$props.process.volume}gの${this.$props.process.item}を ${this.$props.process.time}分${this.$props.process.cook}。`
+      );
+      utterance.voice = this.$data.voices[this.$data.selectedVoiceIndex];
+      speechSynthesis.speak(utterance);
+    },
+  },
 };
 </script>
 
