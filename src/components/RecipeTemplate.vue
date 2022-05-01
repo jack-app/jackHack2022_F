@@ -31,11 +31,27 @@ export default {
         parseInt(i, 16)
       );
       let array = this.recipe.ingredients.slice();
-      let volume = array.map((item) => item.volume);
+      let volume = array.map((ingredient) => ingredient.volume);
+      let names = array.map((ingredient) => this.fixName(ingredient.item));
       return array.map((item, i) => ({
         ...item,
         volume: volume[volumeperm[i]],
+        item: names[i],
       }));
+    },
+  },
+  methods: {
+    fixName(name) {
+      let fixedname = name
+        .split(/[\u3000＜＞（）]/)
+        .filter(
+          (item) =>
+            item != "" &&
+            item.slice(-1)[0] != "類" &&
+            item != "加工品" &&
+            item != "缶詰"
+        );
+      return fixedname[0];
     },
   },
 };
