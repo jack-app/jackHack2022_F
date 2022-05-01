@@ -27,13 +27,13 @@
 </template>
 
 <script>
-import RandomButton from '@/components/RandomButton.vue';
+import RandomButton from "@/components/RandomButton.vue";
 export default {
   components: {
     RandomButton,
   },
   data: () => ({
-    menu: '',
+    menu: "",
   }),
   methods: {
     setRecipe(menu) {
@@ -41,15 +41,15 @@ export default {
       this.getRecipe();
     },
     getRecipe() {
-      this.$emit('resetRecipe');
+      this.$emit("resetRecipe");
       this.$router.push(
         {
-          path: '/',
+          path: "/",
           query: { menu: this.menu },
         },
         () => {}
       );
-      this.$emit('getRecipe');
+      this.$emit("getRecipe");
     },
   },
 };
@@ -58,6 +58,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style scoped>
+.container {
+  margin: 0 auto;
+}
+
 .form {
   margin-top: 3rem;
   margin-bottom: 3rem;
